@@ -1,0 +1,126 @@
+% Metódy inžinierskej práce
+
+\documentclass[10pt,oneside,slovak,a4paper]{article}
+
+\usepackage[slovak]{babel}
+
+\usepackage[IL2]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url} 
+\usepackage{hyperref} 
+
+\usepackage{cite}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+
+
+\title{Fungovanie umelej inteligencie v hrách\thanks{Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2022/23}} % meno a priezvisko vyučujúceho na cvičeniach
+
+\author{Matúš ILLITH\\[2pt]
+	{\small Slovenská technická univerzita v Bratislave}\\
+	{\small Fakulta informatiky a informačných technológií}\\
+	{\small \texttt{xillith@stuba.sk}}
+	}
+
+\date{\small 6.novembra.2022} 
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\ldots
+
+
+Táto práca bude obsahovať odpovede na otázky typu čo je umelá inteligencia ~\ref{def1} a ako funguje umelá inteligencia.~\ref{hlavna cast} Pozrie sa do hĺbky na to , ako sa rozhodujú rôzne druhy umelej inteligencie o krokoch, ktoré musia spraviť. 
+Taktiež sa bude zaoberať históriou umelej inteligencie, ukáže na rôznych prípadoch,  ako sa vývojári rozhodli vyriešiť správanie umelej inteligencie v herných klsikách a na aké problémy natrafili počas vývoja prvých umelých inteligencií~\ref{Pac-Man}.
+A nakoniec nám otvorý okno do mysle jednej z najznámejšich hier sveta .
+Dôležité súvislosti sú uvedené v častiach a
+Záverečné poznámky prináša časť
+
+\end{abstract}
+
+\vspace{1cm}
+
+\section{Úvod}
+
+Svet si pod pojmom umelá inteligencia predstaví takmer vždy len tú v hernej podobe. Umelá inteligencia sa však nenachádza len v hrách. Nie je pochýb že bez umelej inteligencie by dnešný svet nedokázal fungovať. Je jednou z najpodstatnejších časti každej technológie, i keď si to na prvý pohľad neuvedomujeme. Nachádza sa v mobiloch, kde umela inteligencia (neskoršie iba AI) rozhoduje, koľko výkonu procesora si môže aplikácia zobrať podľa toho, ako často ju používame. Nájsť ju však môžeme napríklad v satelitoch, v inteligentných domácnostiach a podobne. Najdôležitejšou časťou umelej inteligencie je stále však jej využitie v hrách. Sprevádza herný svet od jeho počiatkov, je jednou z hlavných častí hrania. Posúva hráčov k bádaniu,  ktorí vďaka nej sú schopní dávať podnet k posunu dopredu a vymýšľať nové riešenia.
+
+Čo je teda tá umelá inteligencia?~\ref{def1}
+
+
+\newpage
+
+\section{Definícia AI} \label{def1}
+~\cite{3.zdroj}
+Definícia umelej inteligencie podľa IBM:
+"Artificial intelligence leverages computers and machines to mimic the problem-solving and decision-making capabilities of the human mind."
+
+Zatiaľ čo v posledných desaťročiach sa objavilo niekoľko definícií umelej inteligencie (AI), John McCarthy ponúka nasledujúcu definíciu:  "   It is the science and engineering of making intelligent machines, especially intelligent computer programs. It is related to the similar task of using computers to understand human intelligence, but AI does not have to confine itself to methods that are biologically observable."
+
+Niekoľko rokov pred touto definícou sa Alan Turing v jeho seminárnej práci z roku 1950 spýtal zaujímavu otázku:"Vedia počitače myslieť? ". Kvôli tejto otázke  vytvoril dnes dobre známy " Turing test". V tomto teste sa človek snaží zistiť, či odpovede na otázky boli vytvorené počítačom alebo človekom. Zatial čo verejnosť má silné myšlienky proti tomuto test nieje pochýb o tom že je jednou z časti histórie umelej inteligencie. 
+
+\vspace{1cm}
+
+\section{Fungovanie AI} \label{hlavna cast}
+
+Na to aby sme vedeli rozdeliť rôzne myšlienkové pochody umelej inteligencie v hrách, treba si povedať kde všade sa v hrách AI nachádza.
+V hrách sa stretávame s rôznimi typmi umelej inteligencie - od najzámejšie umelej inteligencie, ktorá napodobńuje správanie ľudí, zvierat a často sprevádza hráča novými miestami takzvané NPC (Non-playable character), až po umelú inteligenciu ktorá vytvára a riadi celý náš herný svet. 
+~\cite{1.zdroj}
+
+Práve na tieto typi umelej inteligencie, vieme priradiť rôzne druhy rozhodovania:
+\vspace{0.5cm}
+\subsection{Role-based system}
+
+Riadenie podľa systému pravidiel sa považuje za jedno z najstarších forime rozhodovanie. Využíva sa hlavne pre správanie dynamických objektov v arkádach.
+Tento systém sa najčastejšie používa ked máme malý počet entít a zložitejší reťazec podmienok. Keď dôjde na koniec reťazca spustí sa konkrtný skript na vykonanie určitej akcie.~\ref{skript}
+
+Rule-based system vieme znázorniť tabuľkou, kde v poslednóm stĺpci sa nachádza akcia ktorú má daná entita splniť. V ostatných stĺpcov sa nachádzajú podmienky ktoré zapríčinia túto akciu.~\ref{fig:rbs.1}. Jedným z príkladov sú vojenské jednotky kontrolované AI , kde sú určene priority čo musí daná jednotka spraviť.
+
+Ak má malo surovín musí si ich najprv vyťažiť. Potom ak má málo energie musia si postaviť elektrárňu a ked im chýbajú vojaci musia rekrutovať vojakov. Ak majú všetko splnené tak potom zaútočia.
+
+\vspace{1cm}
+
+
+\newpage
+
+\subsection{Riadenie podľ skrípt} \label{skript}
+
+Riadenie skriptami sa považuje za jedno z najjednoduchších foriem riadenia entít. Jeden z najlepších príkladov je hra Pac-Man. V hre Pac-Man sú duchovia kontrolovaný AI ako jediná entita v celej hre. Duchovia sa riadia zložitejšími skriptami, ktoré článok preberá neskoršie.~\ref{Pac-Man}.
+
+Taktiež dokážeme skriptami riadiť rôzne objekty aby menili svoje správanie. 
+
+
+\subsection{Finite State Machine} \label{FSM}
+~\cite{1.zdroj}
+Stavový automat sa nachádza pri vyžiti if-this-than-that procesu. Entita sa nachádza v stavoch dopredu definovaných kedy sa má spustiť Finite State Machine(FSM). Po aktivácii sa daný stav zmení. Každá situácia sa môže teda reprezentovat skriptom alebo ďalším FSM. Entita sa môže nachádzať vo  viacerých stavoch naraz. Ak sa tak stane využíva sa hierarchycký FSM kde každý stav ma dalšie podstavy.
+
+FSM vieme graficky znázorniť tak že každy vrchol grafu ukazuje stav v akom sa entita nachádza a každa hrana predstavuje akciu ktorá sa vykonáva a mení dané stavy.
+\subsection{Goal-driven behavior} \label{GDB}
+~\cite{1.zdroj}
+Goal-driven behavior(GDB) používa na definovanie slprávania úlohy. Úlohy môžu byť atomické kedy ja daná jedna úloha (napr.  miešaj nápoj). Keď spojíme viacej takýchto úloh vzniká plán(napr. miešaj nápoj, choď domov , vyspi sa , vstaň , choď do roboty, miešaj nápoj). GDB vieme znázorniť taktiež grafom.
+
+Spojením viacerých úloh vzniká stromový graf kde úlohy tvoria listy. Každý plán sa dá rozdelit na základné úlohy. Potom tento plán sa dá rozdeliť na sekvenčný, plán kde pokial sa nespravia všetky úlohy tak plán nebol spravený ~\ref{fig:a}, alebo selekčný plán, tam stačý aby sa spravila jedna podmienka aby sa plán splnil~\ref{fig:b}. 
+
+\vspace{1cm}
+
+\subsection{Behavior tree} \label{BT}
+
+Tento spôsob je jedným z najoblúbenejšich spôsobov správania ktore vývojáry implementujú do svojich hier.  Vznikol v dvadsiatom prvóm storočí a prvý krát sa ukázal v hre Halo2.
+
+ Behavior tree reprezentuje mozog NPC. 
+Behavior tree sa dá reprezentovať stromovim grafom. Listy stromu predstavuju  čiastočnú akciu a vnútorne uzly vytváraju rozhodovaci impulz.~\cite{1.zdroj}
+
+
+\section{Porozumenie spravnia duchov v hre Pac-Man}\label{Pac-Man}\cite{2.zdroj}
+
+
+\bibliography{literatura}
+\bibliographystyle{plain} % prípadne alpha, abbrv alebo hociktorý iný
+
+\end{document}
